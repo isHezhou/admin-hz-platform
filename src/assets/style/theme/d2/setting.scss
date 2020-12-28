@@ -1,9 +1,11 @@
 // 主题名称
 $theme-name: 'd2';
 // 主题背景颜色
-$theme-bg-color: #ebf1f6;
+$theme-bg-color: #11985d;
 // 主题背景图片遮罩
-$theme-bg-mask: rgba(#000, 0);
+$theme-bg-mask: rgba(#029398, 0);
+$theme-bg-image: radial-gradient(#029398  10%, #060f30);
+//radial-gradient(#029398  10%, #060f30)
 
 // 消息提示
 $theme-message-info-background-color: $color-bg;
@@ -11,10 +13,15 @@ $theme-message-info-text-color: $color-text-normal;
 $theme-message-info-border-color: $color-border-1;
 
 // container组件
-$theme-container-background-color: rgba(#FFF, 1);
-$theme-container-header-footer-background-color: #FFF;
-$theme-container-border-inner: 1px solid #cfd7e5;
-$theme-container-border-outer: 1px solid #cfd7e5;
+//$theme-container-background-color: rgba(#FFF, 1);
+//$theme-container-header-footer-background-color: #FFF;
+//$theme-container-border-inner: 1px solid #cfd7e5;
+//$theme-container-border-outer: 1px solid #cfd7e5;
+//#029398
+$theme-container-background-color: rgba(#029398, 1);
+$theme-container-header-footer-background-color: #029398;
+$theme-container-border-inner: 1px solid #029398;
+$theme-container-border-outer: 1px solid #029398;
 
 $theme-multiple-page-control-color: $color-text-normal;
 $theme-multiple-page-control-color-active: #2f74ff;

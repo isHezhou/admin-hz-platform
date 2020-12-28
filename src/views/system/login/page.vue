@@ -8,22 +8,21 @@
     <div
       class="page-login--layer page-login--layer-time"
       flex="main:center cross:center">
-      {{time}}
     </div>
     <div class="page-login--layer">
       <div
         class="page-login--content"
         flex="dir:top main:justify cross:stretch box:justify">
         <div class="page-login--content-header">
-          <p class="page-login--content-header-motto">
-            时间是一切财富中最宝贵的财富
-          </p>
         </div>
         <div
           class="page-login--content-main"
           flex="dir:top main:center cross:center">
           <!-- logo -->
-          <img class="page-login--logo" src="./image/logo@2x.png">
+<!--          <img class="page-login&#45;&#45;logo" src="http://pic.616pic.com/ys_bnew_img/00/03/61/J1fhJn3W2j.png">-->
+          <div class="title-container">
+            <h3 class="title">系统管理中心</h3>
+          </div>
           <!-- form -->
           <div class="page-login--form">
             <el-card shadow="never">
@@ -68,56 +67,13 @@
                 </el-button>
               </el-form>
             </el-card>
-            <p
-              class="page-login--options"
-              flex="main:justify cross:center">
-              <span><d2-icon name="question-circle"/> 忘记密码</span>
-              <span>注册用户</span>
-            </p>
-            <!-- quick login -->
-            <el-button class="page-login--quick" size="default" type="info" @click="dialogVisible = true">
-              快速选择用户（测试功能）
-            </el-button>
           </div>
         </div>
         <div class="page-login--content-footer">
-          <p class="page-login--content-footer-locales">
-            <a
-              v-for="language in $languages"
-              :key="language.value"
-              @click="onChangeLocale(language.value)">
-              {{ language.label }}
-            </a>
-          </p>
-          <p class="page-login--content-footer-copyright">
-            Copyright
-            <d2-icon name="copyright"/>
-            2018 D2 Projects 开源组织出品
-            <a href="https://github.com/FairyEver">
-              @FairyEver
-            </a>
-          </p>
-          <p class="page-login--content-footer-options">
-            <a href="#">帮助</a>
-            <a href="#">隐私</a>
-            <a href="#">条款</a>
-          </p>
+
         </div>
       </div>
     </div>
-    <el-dialog
-      title="快速选择用户"
-      :visible.sync="dialogVisible"
-      width="400px">
-      <el-row :gutter="10" style="margin: -20px 0px -10px 0px;">
-        <el-col v-for="(user, index) in users" :key="index" :span="8">
-          <div class="page-login--quick-user" @click="handleUserBtnClick(user)">
-            <d2-icon name="user-circle-o"/>
-            <span>{{user.name}}</span>
-          </div>
-        </el-col>
-      </el-row>
-    </el-dialog>
   </div>
 </template>
 
@@ -242,6 +198,7 @@ export default {
   $backgroundColor: #F0F2F5;
   // ---
   background-color: $backgroundColor;
+  background-image: radial-gradient(#029398  10%, #060f30);
   height: 100%;
   position: relative;
   // 层
@@ -291,6 +248,7 @@ export default {
     // 登录按钮
     .button-login {
       width: 100%;
+      background-color: #029398;
     }
     // 输入框左边的图表区域缩窄
     .el-input-group__prepend {
@@ -479,6 +437,18 @@ export default {
         animation-delay: 0s;
         animation-duration: 11s;
       }
+    }
+  }
+  $light_gray: #eee;
+  .title-container {
+    position: relative;
+
+    .title {
+      font-size: 26px;
+      color: $light_gray;
+      margin: 0px auto 40px auto;
+      text-align: center;
+      font-weight: bold;
     }
   }
 }

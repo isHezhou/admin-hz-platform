@@ -21,6 +21,7 @@
   // 背景图片和遮罩
   .d2-layout-header-aside-group {
     background-color: $theme-bg-color;
+    background-image: $theme-bg-image;
     .d2-layout-header-aside-mask {
       background: $theme-bg-mask;
     }
@@ -68,7 +69,7 @@
   .el-menu--horizontal .el-menu .el-submenu__title:hover {
     @include theme-menu-hover-style;
   }
-  
+
   // 顶栏
   .d2-theme-header {
     // 顶栏菜单空间不足时显示的滚动控件
@@ -253,10 +254,12 @@
           }
           .el-tabs__nav {
             border-color: $theme-multiple-page-control-border-color;
+            // 选项卡
             .el-tabs__item {
               @extend %unable-select;
               color: $theme-multiple-page-control-color;
               background-color: $theme-multiple-page-control-background-color;
+              background-image: $theme-bg-image;
               border-left-color: $theme-multiple-page-control-border-color;
               &:first-child {
                 border-left: none;
@@ -298,6 +301,7 @@
       .d2-theme-container-main-body {
         // 布局组件
         .container-component {
+          background-image: $theme-bg-image;
           // [组件]
           // d2-container-full 填充型
           .d2-container-full {
@@ -306,14 +310,15 @@
             border-bottom: none;
             .d2-container-full__header {
               border-bottom: $theme-container-border-inner;
-              background: $theme-container-header-footer-background-color;
+              //background: $theme-container-header-footer-background-color;
             }
             .d2-container-full__body {
-              background: $theme-container-background-color;
+              background-image: $theme-bg-image;
+              //background: $theme-container-background-color;
             }
             .d2-container-full__footer {
               border-top: $theme-container-border-inner;
-              background: $theme-container-header-footer-background-color;
+              //background: $theme-container-header-footer-background-color;
             }
           }
           // [组件]
