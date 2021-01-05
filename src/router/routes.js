@@ -21,33 +21,60 @@ const frameIn = [
         },
         component: _import('system/index')
       },
-      // 演示页面
+      // 商品管理
       {
-        path: 'page1',
-        name: 'page1',
+        path: 'goodsList',
+        name: 'goodsList',
         meta: {
-          title: '页面 1',
+          title: '商品列表',
           auth: true
         },
-        component: _import('demo/page1')
+        component: _import('goods/goodsList')
       },
       {
-        path: 'page2',
-        name: 'page2',
+        path: 'goodsClass',
+        name: 'goodsClass',
         meta: {
-          title: '页面 2',
+          title: '商品分类',
           auth: true
         },
-        component: _import('demo/page2')
+        component: _import('goods/goodsClass')
       },
       {
-        path: 'page3',
-        name: 'page3',
+        path: 'brandManage',
+        name: 'brandManage',
         meta: {
-          title: '页面 3',
+          title: '品牌管理',
           auth: true
         },
-        component: _import('demo/page3')
+        component: _import('goods/brandManage')
+      },
+      {
+        path: 'freight',
+        name: 'freight',
+        meta: {
+          title: '运费设置',
+          auth: true
+        },
+        component: _import('goods/freight')
+      },
+      {
+        path: 'inventory',
+        name: 'inventory',
+        meta: {
+          title: '库存管理',
+          auth: true
+        },
+        component: _import('goods/inventory')
+      },
+      {
+        path: 'taoBaoAssistant',
+        name: 'taoBaoAssistant',
+        meta: {
+          title: '淘宝助手',
+          auth: true
+        },
+        component: _import('goods/taoBaoAssistant')
       },
       // 系统 前端日志
       {
