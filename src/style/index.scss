@@ -1,0 +1,291 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+@import './btn.scss';
+@import './treeselect.scss';
+@import './design-index';
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Microsoft YaHei,Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Arial, sans-serif;
+}
+
+label {
+  font-weight: 700;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 98%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.padding-content {
+  padding: 4px 0;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+.pr-5 {
+  padding-right: 5px;
+}
+
+.pl-5 {
+  padding-left: 5px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+.block {
+  display: block;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.inlineBlock {
+  display: block;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+//main-container全局样式
+.app-container {
+  padding: 20px 1px 0;
+}
+
+.components-container {
+  margin: 30px 50px;
+  position: relative;
+}
+
+.pagination-container {
+  margin-top: 15px;
+}
+
+.text-center {
+  text-align: center
+}
+
+.sub-navbar {
+  height: 50px;
+  line-height: 50px;
+  position: relative;
+  width: 100%;
+  text-align: right;
+  padding-right: 20px;
+  transition: 600ms ease position;
+  background: linear-gradient(90deg, rgba(32, 182, 249, 1) 0%, rgba(32, 182, 249, 1) 0%, rgba(33, 120, 241, 1) 100%, rgba(33, 120, 241, 1) 100%);
+
+  .subtitle {
+    font-size: 20px;
+    color: #fff;
+  }
+
+  &.draft {
+    background: #d0d0d0;
+  }
+
+  &.deleted {
+    background: #d0d0d0;
+  }
+}
+
+.link-type,
+.link-type:focus {
+  color: #337ab7;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(32, 160, 255);
+  }
+}
+
+.filter-container {
+  .filter-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 10px;
+  }
+}
+
+//refine vue-multiselect plugin
+.multiselect {
+  line-height: 16px;
+}
+
+.multiselect--active {
+  z-index: 1000 !important;
+}
+
+.el-dialog__title {
+  display: inline-block;
+}
+
+[class^="el-icon-fa"], [class*=" el-icon-fa"] {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome !important;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+i.iconfont{
+  font-family: "iconfont", serif;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.el-button [class*=fa-]+span {
+  margin-left: 5px;
+}
+.el-button [class*=icon-]+span {
+  margin-left: 5px;
+}
+.filter-container{
+  overflow: hidden;
+  .el-form-item {
+    margin-bottom: 10px;
+  }
+}
+
+.button-container{
+  margin-bottom: 15px;
+}
+
+.el-dropdown-link {
+  cursor: pointer;
+  color: #409EFF;
+}
+
+.table-inner-button {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.avatar {
+  width: 200px;
+  height: 150px;
+  display: block;
+}
+
+.avatar-uploader .el-upload {
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.avatar-uploader .el-upload:hover {
+  border-color: #409EFF;
+}
+.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 178px;
+  height: 178px;
+  line-height: 178px;
+  text-align: center;
+}
+.description-ellipsis-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  cursor: Default;
+}
+.global-loading-style{
+  position: relative;
+  z-index: 99999999!important;
+}
+.padding-right-20{
+  padding-right: 20px
+}
+.el-dropdown-menu__item.el-dropdown-menu__item--divided:before{
+  height: 0px!important;
+  border-top: 1px solid #3A71A8;
+}
+// 解决穿梭框 第一个元素 与 第二个元素间 存在空白格
+.el-transfer-panel__item{
+  display: block!important;
+}
+//清除浮动
+.clearfix:after{
+  content:"";
+  display:block;
+  clear:both;
+  height:0;
+  visibility:hidden;
+} /*所有主流浏览器都支持 :after 伪元素。*/
+.clearfix{*zoom:1;} /*只针对IE6/7*/
+//盒子阴影
+.shade{
+  border-radius: 3px;
+  border: 1px solid#0758adbd;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.35);
+}
+.shade:hover{
+  cursor: pointer;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+}
+//表格出现小手
+.table-tr-pointer .el-table tbody tr{
+  cursor: pointer;
+}
