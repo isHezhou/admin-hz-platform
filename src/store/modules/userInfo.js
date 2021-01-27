@@ -106,8 +106,8 @@ const userInfo = {
           commit('SET_ACCESS_TOKEN', response.access_token)
           commit('SET_REFRESH_TOKEN', response.refresh_token)
 
-          util.cookies.set('uuid', response.access_token)
-          util.cookies.set('token', response.access_token)
+          // util.cookies.set('uuid', response.access_token)
+          // util.cookies.set('token', response.access_token)
 
           setAccessToken(response.access_token)
           setRefreshToken(response.refresh_token)

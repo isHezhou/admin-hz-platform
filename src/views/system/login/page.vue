@@ -186,28 +186,14 @@ export default {
     submit () {
       this.$refs.loginForm.validate((valid) => {
         if (valid) {
-          // 登录
-          // 注意 这里的演示没有传验证码
-          // 具体需要传递的数据请自行修改代码
-          // this.login({
-          //   username: this.formLogin.username,
-          //   password: this.formLogin.password
-          // })
-          //   .then(() => {
-          //     // 重定向对象不存在则返回顶层路径
-          //     this.$router.replace(this.$route.query.redirect || '/')
-          //   })
-
           this.formLogin.randomStr = randomLenNum(4, true)
           this.$store.dispatch('Login', this.formLogin)
             .then(() => {
-              util.log.danger('>>>>>> 路由信息 >>>>>>')
-              console.log(this.$router)
-              util.log.danger('<<<<<<<<<<<<<<<<<<<<<<')
-
-              // this.$router.push({ path: this.redirect || '/', query: {} })
+              // 设置 vuex 用户信息
+              this.$store.dispatch('d2admin/user/set', { name: this.formLogin.username }, { root: true })
+              // 用户登录后从持久化数据加载一系列的设置
+              this.$store.dispatch('load')
               this.$router.replace(this.$route.query.redirect || '/')
-              // this.$router.push({path: '/'})
 
               // TODO 获取集团信息
               // if(getGroupId()){
