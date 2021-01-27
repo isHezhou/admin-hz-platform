@@ -1,9 +1,33 @@
 <template>
   <d2-container>
     <template slot="header">
-        <el-form :inline="true" :model="listQuery" class="el-form--inline">
-          <el-form-item label="编码" class="el-form-item--mini">
-            <el-input class="el-input--mini" v-model="listQuery.tcode" placeholder="编码"
+        <el-form :inline="true" :model="listQuery" class="el-form--inline el-form-item--mini">
+          <el-form-item label="商品类别" class="el-form-item--mini">
+            <el-input class="el-input--mini" v-model="listQuery.tcode" placeholder="商品类别"
+                      @keyup.enter.native="handleQuery"/>
+          </el-form-item>
+          <el-form-item label="商品品牌" class="el-form-item--mini">
+            <el-input class="el-input--mini" v-model="listQuery.tcode" placeholder="商品品牌"
+                      @keyup.enter.native="handleQuery"/>
+          </el-form-item>
+          <el-form-item label="商品类型" class="el-form-item--mini">
+            <el-input class="el-input--mini" v-model="listQuery.tcode" placeholder="商品类型"
+                      @keyup.enter.native="handleQuery"/>
+          </el-form-item>
+          <el-form-item label="商品状态" class="el-form-item--mini">
+            <el-input class="el-input--mini" v-model="listQuery.tcode" placeholder="商品状态"
+                      @keyup.enter.native="handleQuery"/>
+          </el-form-item>
+          <el-form-item label="显示位置" class="el-form-item--mini">
+            <el-input class="el-input--mini" v-model="listQuery.tcode" placeholder="显示位置"
+                      @keyup.enter.native="handleQuery"/>
+          </el-form-item>
+          <el-form-item label="商品名称" class="el-form-item--mini">
+            <el-input class="el-input--mini" v-model="listQuery.tcode" placeholder="商品名称"
+                      @keyup.enter.native="handleQuery"/>
+          </el-form-item>
+          <el-form-item label="店铺名称" class="el-form-item--mini">
+            <el-input class="el-input--mini" v-model="listQuery.tcode" placeholder="店铺名称"
                       @keyup.enter.native="handleQuery"/>
           </el-form-item>
           <el-form-item class="el-form-item--mini">
@@ -28,7 +52,7 @@
     <el-table
       height="100%"
       class="el-table--mini"
-      :data="tableData"
+      :data="list"
       el-table-column
       tooltip-effect="dark"
       align="center"
@@ -135,7 +159,7 @@ export default {
   name: 'goodsList',
   data () {
     return {
-      tableData: [{
+      list: [{
         productNumber: '143',
         imgUrl: 'https://laikeds.oss-cn-shenzhen.aliyuncs.com/1/0/a5764350035600.jpg',
         productTitle: '蛋蛋肖显瘦过膝弹力靴后系带SW5050细跟高跟长筒靴长靴女靴骑士靴',

@@ -74,5 +74,32 @@ export default {
   // 是否默认开启页面切换动画
   transition: {
     active: true
-  }
+  },
+
+  // 项目相关配置
+  title: '应用',
+
+  /**
+   * @type {boolean} true | false
+   * @description Whether fix the header
+   */
+  fixedHeader: false,
+
+  /**
+   * @type {boolean} true | false
+   * @description Whether show the logo in sidebar
+   */
+  sidebarLogo: true,
+  /**
+   * 是否公有云部署
+   */
+  cloudDeploy: true,
+  /**
+   * 私有化部署集团id
+   */
+  groupId: 1,
+  /**
+   * 网关地址
+   */
+  gateway: 'gateway.platform.hz.com'
 }

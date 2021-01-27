@@ -41,7 +41,7 @@
                 <el-form-item prop="password">
                   <el-input
                     type="password"
-                    v-model="formLogin.password"
+                    v-model="formLogin.pwd"
                     placeholder="密码">
                     <i slot="prepend" class="fa fa-keyboard-o"></i>
                   </el-input>
@@ -88,10 +88,15 @@
 </template>
 
 <script>
+import { randomLenNum } from '@/utils/public'
 import dayjs from 'dayjs'
 import { mapActions } from 'vuex'
 import localeMixin from '@/locales/mixin.js'
+import { getGroupId, setGroupId, setGroupList } from '@/utils/auth'
+import util from "../../../libs/util";
+
 export default {
+  // name: 'Login',
   mixins: [
     localeMixin
   ],
@@ -105,23 +110,23 @@ export default {
         {
           name: 'Admin',
           username: 'admin',
-          password: 'admin'
+          pwd: '123456'
         },
         {
           name: 'Editor',
           username: 'editor',
-          password: 'editor'
+          pwd: 'editor'
         },
         {
           name: 'User1',
           username: 'user1',
-          password: 'user1'
+          pwd: 'user1'
         }
       ],
       // 表单
       formLogin: {
         username: 'admin',
-        password: 'admin',
+        pwd: '123456',
         code: 'v9am'
       },
       // 表单校验
@@ -133,7 +138,7 @@ export default {
             trigger: 'blur'
           }
         ],
-        password: [
+        pwd: [
           {
             required: true,
             message: '请输入密码',
@@ -171,7 +176,7 @@ export default {
      */
     handleUserBtnClick (user) {
       this.formLogin.username = user.username
-      this.formLogin.password = user.password
+      this.formLogin.pwd = user.pwd
       this.submit()
     },
     /**
@@ -184,13 +189,50 @@ export default {
           // 登录
           // 注意 这里的演示没有传验证码
           // 具体需要传递的数据请自行修改代码
-          this.login({
-            username: this.formLogin.username,
-            password: this.formLogin.password
-          })
+          // this.login({
+          //   username: this.formLogin.username,
+          //   password: this.formLogin.password
+          // })
+          //   .then(() => {
+          //     // 重定向对象不存在则返回顶层路径
+          //     this.$router.replace(this.$route.query.redirect || '/')
+          //   })
+
+          this.formLogin.randomStr = randomLenNum(4, true)
+          this.$store.dispatch('Login', this.formLogin)
             .then(() => {
-              // 重定向对象不存在则返回顶层路径
+              util.log.danger('>>>>>> 路由信息 >>>>>>')
+              console.log(this.$router)
+              util.log.danger('<<<<<<<<<<<<<<<<<<<<<<')
+
+              // this.$router.push({ path: this.redirect || '/', query: {} })
               this.$router.replace(this.$route.query.redirect || '/')
+              // this.$router.push({path: '/'})
+
+              // TODO 获取集团信息
+              // if(getGroupId()){
+              //   // 重定向对象不存在则返回顶层路径
+              //   this.$router.replace(this.$route.query.redirect || '/')
+              // } else {
+              //   TODO 获取用户信息 getInfo
+              //   getInfo(getGroupId()).then(res => {
+              //     if (res.data.groups) {
+              //       if (res.data.groups.length > 1) {
+              //         window.sessionStorage.setItem('groupsListNumber', res.data.groups.length)
+              //         for (const i in res.data.groups) {
+              //           delete res.data.groups[i].loginbg
+              //           delete res.data.groups[i].logo
+              //           delete res.data.groups[i].copyright
+              //         }
+              //         setGroupList(res.data.groups)
+              //         _this.groups = res.data.groups
+              //         _this.dialogVisible = true
+              //       }
+              //     } else {
+              //       setGroupId(res.data.groupId)
+              //     }
+              //   })
+              // }
             })
         } else {
           // 登录表单校验失败

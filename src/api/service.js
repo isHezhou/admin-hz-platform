@@ -76,7 +76,7 @@ function createService () {
  */
 function createRequestFunction (service) {
   return function (config) {
-    const token = util.cookies.get('token')
+    const token = util.cookies.get('x-access-token')
     const configDefault = {
       headers: {
         Authorization: token,

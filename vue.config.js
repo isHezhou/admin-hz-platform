@@ -4,6 +4,7 @@ const ThemeColorReplacer = require('webpack-theme-color-replacer')
 const forElementUI = require('webpack-theme-color-replacer/forElementUI')
 const cdnDependencies = require('./dependencies-cdn')
 const { chain, set, each } = require('lodash')
+// const defaultSettings = require('./src/settings.js')
 
 // 拼接路径
 const resolve = dir => require('path').join(__dirname, dir)
@@ -14,6 +15,10 @@ process.env.VUE_APP_BUILD_TIME = require('dayjs')().format('YYYY-M-D HH:mm:ss')
 
 // 基础路径 注意发布之前要先修改这里
 const publicPath = process.env.VUE_APP_PUBLIC_PATH || '/'
+
+const port = process.env.port || process.env.npm_config_port || 9529 // dev port
+
+const baseURL = process.env.VUE_APP_BASE_API
 
 // 设置不参与构建的库
 const externals = {}
@@ -38,7 +43,24 @@ module.exports = {
   lintOnSave: true,
   devServer: {
     publicPath, // 和 publicPath 保持一致
-    disableHostCheck: process.env.NODE_ENV === 'development' // 关闭 host check，方便使用 ngrok 之类的内网转发工具
+    disableHostCheck: process.env.NODE_ENV === 'development', // 关闭 host check，方便使用 ngrok 之类的内网转发工具
+    port: port,
+    open: false,
+    overlay: {
+      warnings: false,
+      errors: true
+    },
+    proxy: {
+      [baseURL]: {
+        // target: `http://${defaultSettings.gateway}`,
+        target: `http://gateway.platform.hz.com`,
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: {
+          ['^' + baseURL]: ''
+        }
+      }
+    }
   },
   css: {
     loaderOptions: {
